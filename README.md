@@ -1,4 +1,4 @@
-# Feigenbaum
+# Feigenbaum bifurcation diagram drawer
 
 ## Controls:
 * Spacebar: toggle auto-drawing
