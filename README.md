@@ -6,7 +6,7 @@
 * S: save current image
 
 ## What you should see:
-![What you should see](/FeigenbaumFractal/Feigenbaum.png)
+![What you should see](Feigenbaum.png)
 
 ## To-do:
 * Add different color palettes to choose from in some dropdown menu
