@@ -1,23 +1,23 @@
-let start = 2.5;
-let end = 4;
-let smoothness;
-let cutoff = 512;
-let maxFrame;
+let start = 2.5;      // the x coordinate corresponding to the left of the screen
+let end = 4;         // the x coordinate corresponding to the right of the screen
+let smoothness;     // the number of positions on the x-axis for which the diagram will be calculated
+let detail = 3;    // the number of x-axis poins calculated, per pixel.
+let cutoff = 512; // the maximum number of pixels displayed at every calculated x-coordinate
+let maxFrame;    // something
 
 let frame = 0;
-let drawing = false;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	smoothness = width*3;
+	smoothness = width*detail;
 	maxFrame = (end-start)*smoothness;
-	stroke(255, 30);
+	stroke(255, 100/detail);
 	background(0);
 	strokeWeight(1);
 }
 
 function draw() {
-	if (mouseIsPressed || touches.length>0 || drawing) {
+	if (!mouseIsPressed && !touches.length>0) {
 		m = millis();
 		while (millis() - m < 17) { // 17 = 1000/60 = millis per frame
 			doIteration();
@@ -56,19 +56,8 @@ function doIteration() {
 	frame++;
 }
 
-function removeControlDiv() {
-	document.getElementById('controlswrapper').style = "display:none";
-}
-
 function keyPressed() {
-	if (key == ' ') {
-		drawing = !drawing;
-	} else if (key == 's') {
+	if (key == 's') {
 		saveCanvas("Feigenbaum","png");
 	}
-	removeControlDiv();
-}
-
-function mousePressed() {
-	removeControlDiv();
 }
